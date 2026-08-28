@@ -1,0 +1,545 @@
+/* ============ COLOR / SPACING TOKENS ============ */
+:root {
+  --paper: #0a0b0c;
+  /* main background */
+  --paper-alt: #131516;
+  /* navbar background */
+  --ink: #e6e8ea;
+  /* primary text */
+  --ink-soft: #93999d;
+  /* secondary text */
+  --accent: #22d3ee;
+  /* cyan accent */
+  --accent-soft: #7dd9e8;
+  /* pale cyan accent */
+  --rule: #2a2e30;
+  /* borders */
+  --card: #101213;
+  /* card background */
+  --nav-height: 64px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ink);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  z-index: 200;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.eyebrow {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: var(--accent-soft);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 10px);
+}
+
+/* ============ NAVBAR ============ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  background: var(--paper-alt);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.brand-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--card);
+  border: 1px solid var(--rule);
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-cta {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-cta:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    height: auto;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    row-gap: 0.6rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    order: 3;
+  }
+}
+
+/* ============ SECTION SHELL ============ */
+section {
+  border-bottom: 1px solid var(--rule);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+.section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section-sub {
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  max-width: 60ch;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--paper);
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--paper);
+  color: var(--accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+}
+
+.btn-outline:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ============ HERO ============ */
+.hero .section-inner {
+  max-width: 640px;
+  text-align: center;
+}
+
+.hero .eyebrow {
+  text-align: center;
+}
+
+.hero-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+}
+
+.hero h1 {
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+}
+
+.hero .tagline {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 1rem auto 0;
+  max-width: 46ch;
+}
+
+.tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
+.tag-pill {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+}
+
+.tag-pill.status {
+  color: var(--accent-soft);
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* ============ ABOUT ============ */
+.about .section-inner {
+  max-width: 720px;
+}
+
+.about p {
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.about p+p {
+  margin-top: 1rem;
+}
+
+/* ============ SKILLS ============ */
+.skill-groups {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-group .category-label {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: var(--accent-soft);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+}
+
+/* ============ PROJECTS ============ */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.filter-pill {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter-pill:hover {
+  border-color: var(--accent-soft);
+  color: var(--ink);
+}
+
+.filter-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-card .card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card .badge {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 0.4rem;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-card .desc {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.85rem 0;
+}
+
+.tag {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  color: var(--accent-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.project-links {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+/* ============ EXPERIENCE / EDUCATION TIMELINE ============ */
+.timeline-columns {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .timeline-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.timeline-column h3.col-title {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--accent-soft);
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  border-left: 2px solid var(--rule);
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.98rem;
+  top: 0.3rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-item .when {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.timeline-item h3 {
+  font-size: 1.05rem;
+  margin-top: 0.25rem;
+}
+
+.timeline-item .where {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  max-width: 60ch;
+}
+
+/* ============ CONTACT / FOOTER ============ */
+.contact .section-inner {
+  text-align: center;
+  max-width: 600px;
+}
+
+.contact p {
+  color: var(--ink-soft);
+}
+
+.contact .btn-primary {
+  margin-top: 1.5rem;
+}
+
+.contact-methods {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.88rem;
+}
+
+footer.sign-off {
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
